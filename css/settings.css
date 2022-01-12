@@ -9,16 +9,29 @@ html {
 }
 
 body {
-  margin: 0;
+  min-width: 320px;
   font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--main-color);
 }
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, h5, p {
+  margin: 0;
+}
+
+input {
+  font-weight: inherit;
 }
 
 .list-reset {
@@ -33,7 +46,6 @@ a {
   background: transparent;
   cursor: pointer;
 }
-
 
 .is-hidden {
   display: none !important;
@@ -54,14 +66,10 @@ a {
   border: 2px #ff4019 solid !important;
 }
 
-
 .container {
   margin: 0 auto;
   padding: 0 15px;
-  max-width: 1210px;
+  max-width: 1180px;
 }
 
-.js-focus-visible :focus:not(.focus-visible) {
-  outline: none;
-}
 
