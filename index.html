@@ -16,8 +16,38 @@
       <!-- style -->
   <link rel="stylesheet" href="css/style.css">
 
+  <style id="bg">
+    .hero__slider-link--women {
+      background-image: url('img/slide_1.jpg');
+    }
+
+    .hero__slider-link--men {
+      background-image: url('img/slide_2.jpg')
+    }
+
+    .hero__slider-link--kids {
+      background-image: url('img/slide_3.jpg')
+    }
+
+    @media (max-width: 1000px) {
+      .hero__slider-link--women {
+        background-image: url('img/slide_1_tablet.jpg');
+      }
+
+      .hero__slider-link--men {
+        background-image: url('img/slide_2_tablet.jpg')
+      }
+
+      .hero__slider-link--kids {
+        background-image: url('img/slide_3_tablet.jpg')
+      }
+    }
+
+  </style>
+
     <!-- script -->
-  <script defer src="libs/focus-visible.js"></script>
+  <script src="js/main.js" type="module"></script>
+  <script defer src="js/libs/focus-visible.js"></script>
 
   <title>Second Hand</title>
 </head>
@@ -70,7 +100,7 @@
 
       <div class="header__search">
         <form action="#" class="search">
-          <input class="search__input" type="search">
+          <input class="search__input" type="search" required>
           <button class="search__button btn-reset" type="button">
             <svg width="24" height="24">
               <use xlink:href="img/icon.svg#search"></use>
@@ -116,26 +146,28 @@
   <main>
     <section class="hero">
       <div class="hero__container container">
-        <div class="hero__slider">
-          <ul class="hero__slider-wrapper list-reset">
-            <li class="hero__slider-item">
-              <a class="hero__slider-link" href="?categorty=women" style="background-image: url('img/slide_1.jpg');">
+        <div class="hero__slider swiper">
+          <ul class="hero__slider-wrapper swiper-wrapper list-reset">
+            <li class="hero__slider-item swiper-slide">
+              <a class="hero__slider-link hero__slider-link--women" href="?categorty=women">
                 <h2 class="hero__slider-title">Новые поступления блузок</h2>
               </a>
             </li>
 
-            <li class="hero__slider-item" hidden>
-              <a class="hero__slider-link" href="?categorty=men" style="background-image: url('img/slide_2.jpg')">
+            <li class="hero__slider-item swiper-slide">
+              <a class="hero__slider-link hero__slider-link--men" href="?categorty=men">
                 <h2 class="hero__slider-title">Мужские стильные рубашки</h2>
               </a>
             </li>
 
-            <li class="hero__slider-item" hidden>
-              <a class="hero__slider-link" href="?categorty=kids" style="background-image: url('img/slide_3.jpg')">
+            <li class="hero__slider-item swiper-slide">
+              <a class="hero__slider-link hero__slider-link--kids" href="?categorty=kids">
                 <h2 class="hero__slider-title">Собираем ребенка в&nbsp;школу</h2>
               </a>
             </li>
           </ul>
+
+          <div class="hero__swiper-pagination"></div>
         </div>
       </div>
     </section>

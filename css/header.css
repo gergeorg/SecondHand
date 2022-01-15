@@ -77,7 +77,11 @@
   border-radius: 20px;
   background-color: var(--color-gray);
   will-change: border-radius;
-  transition: border-radius .3s ease-in-out .2s;
+  transition: border-radius .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.search__button:hover {
+  background-color: #E5E5E5;
 }
 
 .search__close {
@@ -179,6 +183,7 @@
     height: 0;
     overflow: hidden;
     background-color: var(--color-white);
+    z-index: 15;
   }
 
   .nav__item:not(:last-child) {
@@ -198,6 +203,10 @@
 
   .nav__active .nav__btn::after {
     transform: rotate(180deg);
+  }
+
+  .nav__link:hover:after {
+    display: none;
   }
 
   .search__input {
@@ -251,7 +260,7 @@
     width: 100%;
     height: 2px;
     background-color: var(--main-color);
-    transition: transform .3s ease-in-out, top .24ms ease-in-out;
+    transition: transform .3s ease-in-out, top .3ms ease-in-out;
   }
 
   .nav__btn::after {
@@ -272,8 +281,8 @@
     transform: rotate(-45deg);
   }
 
-  .nav__btn-active .nav__btn-line {
-    transform: translateY(-50%) scale(0);
+  .nav__active .nav__btn-line {
+    transform: translateY(-50%), scale(0);
   }
 
   .nav__control-list {
@@ -315,6 +324,7 @@
     transform: scaleX(1);
     font-size: 12px;
     line-height: 15px;
+    padding: 17px 15px;
   }
 
   .search__button {
