@@ -5,12 +5,8 @@ const searchControl = ({ selectorBtn, selectorForm, selectorClose, classActive, 
 
   const activateForm = () => {
     form.classList.add(classActive)
-    if (document.documentElement.clientWidth >= breakpoint) {
-      btn.removeEventListener('click', activateForm)
-    }
-    if (document.documentElement.clientWidth <= breakpoint) {
-      btn.type = 'submit'
-    }
+    btn.removeEventListener('click', activateForm)
+    btn.type = 'submit'
   }
 
   const deactivateForm = () => {
@@ -19,10 +15,12 @@ const searchControl = ({ selectorBtn, selectorForm, selectorClose, classActive, 
     btn.type = 'button'
   }
 
-
-
-  btn.addEventListener('click', activateForm)
-  close.addEventListener('click', deactivateForm)
+  if (document.documentElement.clientWidth > breakpoint) {
+    btn.addEventListener('click', activateForm)
+    close.addEventListener('click', deactivateForm)
+  } else {
+    btn.type = 'button'
+  }
 }
 
 export default searchControl;

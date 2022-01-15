@@ -6,7 +6,7 @@ const {createServer} = require('http');
 // файл для базы данных
 const DB_FILE = process.env.DB_FILE || '.db.json';
 // номер порта, на котором будет запущен сервер
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 // префикс URI для всех методов приложения
 const URI_PREFIX = '/api/goods';
 
@@ -54,7 +54,6 @@ function randomGoods(goods) {
  * category: string, image: string}[]} Массив товаров
  */
 function getGoodsList(params = {}) {
-  console.log(params)
   const goods = JSON.parse(readFileSync(DB_FILE) || '[]');
   if (params.search) {
     const search = params.search.trim().toLowerCase();
@@ -86,7 +85,6 @@ function getGoodsList(params = {}) {
 function getItems(itemId) {
   const goods = JSON.parse(readFileSync(DB_FILE) || '[]');
   const item = goods.find(({id}) => id === itemId);
-  console.log(itemId)
   if (!item) throw new ApiError(404, {message: 'Item Not Found'});
   return item;
 }
