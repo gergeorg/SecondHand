@@ -11,12 +11,11 @@ const searchControl = ({ selectorBtn, selectorForm, selectorClose, classActive, 
     if (document.documentElement.clientWidth <= breakpoint) {
       btn.type = 'submit'
     }
-
   }
 
   const deactivateForm = () => {
     form.classList.remove(classActive)
-    btn.removeEventListener('click', activateForm)
+    btn.addEventListener('click', activateForm)
     btn.type = 'button'
   }
 

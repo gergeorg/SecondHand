@@ -324,11 +324,19 @@
     transform: scaleX(1);
     font-size: 12px;
     line-height: 15px;
-    padding: 17px 15px;
+    padding: 18px 15px;
   }
+
+  .search__active .search__input {
+    padding: 18px 30px;
+}
 
   .search__button {
     border-radius: 0 20px 20px 0;
+  }
+
+  .search__close {
+    display: none;
   }
 }
 

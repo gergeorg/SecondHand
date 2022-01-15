@@ -33,5 +33,4 @@ slider({
   bulletActiveClass: 'hero__swiper-line--active',
 })
 
-// document.addEventListener('click', e => e.preventDefault())
 
