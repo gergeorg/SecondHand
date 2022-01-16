@@ -15,7 +15,7 @@ const createCard = ({id, title, image, price, discountPrice}) => {
 
       <div class="good__control-wrapper">
         <h3 class="good__title">${title}</h3>
-        <button class="good__to-cart btn-reset" data-id="${id}">В корзину</button>
+        <button class="good__to-cart btn__to-cart btn-reset" data-id="${id}">В корзину</button>
         <span class="goods__price">${discountPrice ? `${discountPrice} ₽
           <span class="goods__price-old">${price} ₽</span>`  : `${price} ₽`}
         </span>

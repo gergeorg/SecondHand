@@ -258,6 +258,146 @@
       </div>
     </footer>
 
+    <div class="overlay overlay__item">
+      <div class="overlay__modal overlay__modal-item">
+        <button class="overlay__btn-close btn-reset">
+          <svg width="14" height="14">
+            <use xlink:href="img/icon.svg#modal-close"></use>
+          </svg>
+        </button>
+
+        <div class="modal-item">
+          <img class="modal-item__img" src="img/good_1.jpg" alt="Жилет">
+
+          <div class="modal-item__descr">
+            <h2 class="modal-item__title">Жилет</h2>
+            <ul class="modal-item__advantage-list list-reset">
+              <li class="modal-item__advantage-item">Состав:
+                <span class="modal-item__text">Хлопок - 47%, Акрил - 26%, Шерсть - 14%, Полиамид - 13%</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Материал подкладки:
+                <span class="modal-item__text">без подкладки</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Утеплитель:
+                <span class="modal-item__text">без утеплителя</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Сезон:
+                <span class="modal-item__text">мульти</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Цвет:
+                <span class="modal-item__text">бежевый</span>
+              </li>
+            </ul>
+
+            <p class="modal-item__article">Артикул:
+              <span class="modal-item__text">IX001XW016CK</span>
+            </p>
+
+            <div class="modal-item__btn-group">
+              <button class="modal-item__btn-to-cart btn__to-cart btn-reset">В корзину</button>
+              <button class="modal-item__btn-to-favorite btn-reset">
+                <svg width="44" height="37">
+                  <use xlink:href="img/icon.svg#modal-fav"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay overlay__cart">
+      <div class="overlay__modal overlay__modal-cart">
+        <button class="overlay__btn-close btn-reset">
+          <svg width="14" height="14">
+            <use xlink:href="img/icon.svg#modal-close"></use>
+          </svg>
+        </button>
+
+        <form class="modal-cart" action="#">
+          <ul class="modal-cart__list list-reset">
+            <li class="modal-cart__item">
+              <img class="modal-cart__img" src="img/good_1.jpg" alt="Жилет">
+
+              <div class="modal-cart__wrapper">
+                <h3 class="modal-cart__subtitle">Жилет</h3>
+
+                <ul class="modal-cart__props props list-reset">
+                  <li class="props__item">
+                    <h4 class="props__title">Артикул:</h4>
+                    <p class="props__descr">IX001XW016CK</p>
+                  </li>
+
+                  <li class="props__item">
+                    <h4 class="props__title">Количество</h4>
+                    <div class="props__descr">
+                      <button class="props__btn props__btn-min btn-reset" type="button">-</button>
+                      <output class="props__count" name="count">2</output>
+                      <button class="props__btn props__btn-plus btn-reset" type="button">+</button>
+                    </div>
+                  </li>
+
+                  <li class="props__item">
+                    <h4 class="props__title">Цена, шт</h4>
+                    <p class="props__descr">4500 ₽</p>
+                  </li>
+
+                  <li class="props__item">
+                    <h4 class="props__title">Стоимость</h4>
+                    <p class="props__descr">9000 ₽</p>
+                  </li>
+                </ul>
+
+                <li class="modal-cart__item">
+                  <img class="modal-cart__img" src="img/good_1.jpg" alt="Жилет">
+
+                  <div class="modal-cart__wrapper">
+                    <h3 class="modal-cart__subtitle">Жилет</h3>
+
+                    <ul class="modal-cart__props props list-reset">
+                      <li class="props__item">
+                        <h4 class="props__title">Артикул:</h4>
+                        <p class="props__descr">IX001XW016CK</p>
+                      </li>
+
+                      <li class="props__item">
+                        <h4 class="props__title">Количество</h4>
+                        <div class="props__descr">
+                          <button class="props__btn props__btn-min btn-reset" type="button">-</button>
+                          <output class="props__count" name="count">2</output>
+                          <button class="props__btn props__btn-plus btn-reset" type="button">+</button>
+                        </div>
+                      </li>
+
+                      <li class="props__item">
+                        <h4 class="props__title">Цена, шт</h4>
+                        <p class="props__descr">4500 ₽</p>
+                      </li>
+
+                      <li class="props__item">
+                        <h4 class="props__title">Стоимость</h4>
+                        <p class="props__descr">9000 ₽</p>
+                      </li>
+                    </ul>
+              </div>
+            </li>
+          </ul>
+
+          <div class="modal-cart__footer">
+            <p class="modal-cart__total">Итог:
+              <output class="modal-cart__total-price" name="total-price">11 900</output>
+              <span class="modal-cart__text">₽</span>
+            </p>
+
+            <button class="modal-cart__btn btn__to-cart btn-reset" type="submit">Оформить заказ</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
 
 </body>
