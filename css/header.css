@@ -63,7 +63,7 @@
   border-radius: 20px 0 0 20px;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform .2s ease-in-out;
+  transition: transform .4s ease-in-out;
   background-color: var(--color-gray);
 }
 
@@ -97,10 +97,12 @@
 .search__active .search__input {
   transform: scaleX(1);
   padding: 14px 30px;
+  transition: transform .4s ease-in-out .2s;
 }
 
 .search__active .search__button {
   border-radius: 0 20px 20px 0;
+  transition: border-radius .2s ease-in-out;
 }
 
 .search__active .search__close {

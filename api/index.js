@@ -4,9 +4,10 @@ const {createServer} = require('http');
 
 
 // файл для базы данных
-const DB_FILE = process.env.DB_FILE || '.db.json';
+const DB_FILE = process.env.DB_FILE || './api/db.json';
+
 // номер порта, на котором будет запущен сервер
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3010;
 // префикс URI для всех методов приложения
 const URI_PREFIX = '/api/goods';
 

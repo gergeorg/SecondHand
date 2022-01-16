@@ -1,32 +1,46 @@
 import Swiper from '../libs/swiper-bundle.esm.browser.min.js'
 
-const slider = ({ selectorSlider, selectorPagination, type, bulletClass, bulletActiveClass }) => {
-new Swiper(selectorSlider, {
-  autoplay: {
-    delay: 6000,
-  },
-  loop: true,
-  effect: 'fade',
-  pagination: {
-    el: selectorPagination,
-    type: 'bullets',
-    bulletClass,
-    bulletActiveClass,
-    clickable: true,
-  },
+const slider = ({ selectorParentSlider, selectorSlider, selectorPagination, type, bulletClass, bulletActiveClass }) => {
+  const swiper = new Swiper(selectorSlider, {
+    init: false,
+    autoplay: {
+      delay: 6000,
+    },
+    loop: true,
+    effect: 'fade',
+    pagination: {
+      el: selectorPagination,
+      type: 'bullets',
+      bulletClass,
+      bulletActiveClass,
+      clickable: true,
+    },
 
-  on: {
-    init() {
-      this.el.addEventListener('mouseenter', () => {
-        this.autoplay.stop()
-      })
+    on: {
+      init() {
+        this.el.addEventListener('mouseenter', () => {
+          this.autoplay.stop()
+        })
 
-      this.el.addEventListener('mouseleave', () => {
-        this.autoplay.start()
-      })
+        this.el.addEventListener('mouseleave', () => {
+          this.autoplay.start()
+        })
+      }
+    }
+  })
+
+  const checkSlider = () => {
+    const href = location.href
+
+    if (href.includes('?')) {
+      swiper.disable()
+      document.querySelector(selectorParentSlider)?.remove()
+    } else {
+      swiper.init()
     }
   }
-})
+  checkSlider()
+  return checkSlider
 }
 
 export default slider;
