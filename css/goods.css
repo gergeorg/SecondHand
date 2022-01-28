@@ -28,6 +28,11 @@
   fill: var(--color-white);
 }
 
+.good__favorite-btn.active svg {
+  fill: var(--pink-color);
+  opacity: 1;
+}
+
 .good__favorite-btn svg {
   transition: fill .3s ease-in-out, opacity .3s ease-in-out;
 }
@@ -41,7 +46,7 @@
   fill: var(--pink-color);
 }
 
-.good__favorite-btn:focus svg {
+.good__favorite-btn:focus-visible svg {
   fill: var(--pink-color);
   opacity: 0.75;
 }

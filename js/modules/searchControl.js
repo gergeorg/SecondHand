@@ -1,3 +1,14 @@
+import renderGoods from "../modules/renderGoods.js";
+import {checkSlider} from "../modules/slider.js";
+
+const handlerSearch = e => {
+  e.preventDefault()
+  const searchURL = `?search=${e.target.search.value}`
+  history.pushState(searchURL.substring(1),searchURL.substring(1), searchURL)
+  renderGoods(searchURL)
+  checkSlider()
+}
+
 const searchControl = ({ selectorBtn, selectorForm, selectorClose, classActive, breakpoint}) => {
   const btn = document.querySelector(selectorBtn)
   const form = document.querySelector(selectorForm)
@@ -21,6 +32,8 @@ const searchControl = ({ selectorBtn, selectorForm, selectorClose, classActive, 
   } else {
     btn.type = 'button'
   }
+
+  form.addEventListener('submit', handlerSearch)
 }
 
 export default searchControl;

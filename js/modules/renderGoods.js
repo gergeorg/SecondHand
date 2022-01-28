@@ -1,13 +1,19 @@
 import serviceGoods from "../service/serviceGoods.js";
+import {getStorage} from  "../service/serviceStorage.js"
 
 const createCard = ({id, title, image, price, discountPrice}) => {
+  const allFavorite = getStorage('favorite')
+
+
   const li = document.createElement('li')
   li.classList.add('goods__item')
 
   li.insertAdjacentHTML('beforeend', `
     <article class="good">
       <img src="${image}" alt="${title}" class="good__img">
-      <button class="good__favorite-btn btn-reset" data-id="${id}">
+      <button class="${allFavorite.includes(id) ?
+                    'good__favorite-btn active' :
+                    'good__favorite-btn'} btn-reset" data-id="${id}">
         <svg class="hidden" width="28" height="24">
           <use xlink:href="img/icon.svg#fav"></use>
         </svg>

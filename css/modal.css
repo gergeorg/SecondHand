@@ -1,6 +1,5 @@
 .overlay {
-  /* display: none; */
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -9,28 +8,22 @@
   left: 0;
   right: 0;
   z-index: 999;
-  background-color: rgba(0,0,0,0.3);
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
 }
 
-.overlay__item {
-  display: none;
-}
-
-.overlay__cart {
-  display: none;
+.overlay__active {
+  display: flex;
 }
 
 .overlay__modal {
+  padding: 80px 150px;
   position: relative;
   display: flex;
   background-color: var(--color-white);
+  border-radius: 20px;
 }
 
-.overlay__modal-item {
-  padding: 80px 100px;
-  width: 1180px;
-  height: 600px;
-}
 
 .overlay__btn-close {
   position: absolute;
@@ -48,11 +41,13 @@
 
 .modal-item {
   display: flex;
-  /* justify-content: space-between; */
+  gap: 120px;
 }
 
 .modal-item__img {
-  margin-right: 120px;
+  width: 380px;
+  height: 440px;
+  object-fit: cover;
 }
 
 .modal-item__title {
@@ -90,6 +85,12 @@
   fill: var(--color-white);
   stroke: var(--main-color);
   transition: fill .3s ease-in-out, stroke .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+.modal-item__btn-to-favorite.active svg {
+  fill: var(--pink-color);
+  stroke: var(--pink-color);
+  opacity: 1;
 }
 
 .modal-item__btn-to-favorite:hover svg {
@@ -204,3 +205,75 @@
   padding: 7px 25px;
 }
 
+@media (max-width: 1200px) {
+  .overlay__modal {
+    padding: 80px 70px;
+  }
+}
+@media (max-width: 1000px) {
+
+  .modal-item {
+    gap: 36px;
+  }
+
+  .modal-item__img {
+    width: 319px;
+    height: 370px;
+  }
+
+  .modal-item__title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .overlay__modal {
+    padding: 50px 30px;
+  }
+
+  .modal-item__img {
+    width: 222px;
+    height: 321px;
+  }
+
+  .modal-item__advantage-item, .modal-item__article {
+    font-size: 16px;
+  }
+
+  .modal-item {
+    gap: 10px;
+  }
+
+  .modal-item__advantage-list {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 580px) {
+  .overlay__modal {
+    padding: 40px 20px;
+  }
+
+  .modal-item {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  .overlay__btn-close {
+    top: 10px;
+    right: 15px;
+  }
+
+  .modal-item__img {
+    width: 100%;
+    height: 233px;
+  }
+
+  .modal-item__title {
+    font-size: 18px;
+  }
+
+  .modal-item__advantage-item, .modal-item__article {
+    font-size: 14px;
+  }
+}
