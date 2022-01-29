@@ -6,6 +6,7 @@ import renderGoods from "./modules/renderGoods.js";
 import interceptLink from "./modules/interceptLink.js";
 import itemModal from "./modules/itemModal.js";
 import addFavorite from "./modules/addFavorite.js";
+import controlCart from "./modules/addCart.js";
 
 
 burgerMenu({
@@ -14,14 +15,6 @@ burgerMenu({
   selectorClose: '.nav__link, .header__btn',
   classActive: 'nav__active',
 
-})
-
-searchControl({
-  selectorBtn: '.search__button',
-  selectorForm: '.search',
-  selectorClose: '.search__close',
-  classActive: 'search__active',
-  breakpoint: 760,
 })
 
 selectControl({
@@ -37,6 +30,15 @@ const checkSlider = slider({
   selectorPagination: '.hero__swiper-pagination',
   bulletClass: 'hero__swiper-line',
   bulletActiveClass: 'hero__swiper-line--active',
+})
+
+searchControl({
+  selectorBtn: '.search__button',
+  selectorForm: '.search',
+  selectorClose: '.search__close',
+  classActive: 'search__active',
+  breakpoint: 760,
+  callback: checkSlider,
 })
 
 renderGoods(location.search, () => {
@@ -67,4 +69,11 @@ addFavorite({
   changeActiveClass: '.good__favorite-btn',
 })
 
+controlCart ({
+  selectorAdd: '.good__to-cart',
+  // selectorRemove: '',
+  selectorParent: '.goods__list',
+  text: '{count} в корзине',
+
+})
 

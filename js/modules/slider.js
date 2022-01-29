@@ -29,7 +29,7 @@ const slider = ({ selectorParentSlider, selectorSlider, selectorPagination, type
     }
   })
 
-  export const checkSlider = () => {
+  const checkSlider = () => {
     const regexp = /\?(search|category|list)=/;
     const href = location.href
 
