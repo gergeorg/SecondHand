@@ -113,8 +113,12 @@
 
 .overlay__modal-cart {
   padding: 60px 100px;
-  width: 780px;
-  height: 495px;
+}
+
+.modal-cart__list {
+  overflow-y: auto;
+  max-height: 350px;
+  margin-bottom: 30px;
 }
 
 .modal-cart__item {
@@ -169,11 +173,19 @@
   border-radius: 50%;
   background: var(--color-white);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
-  transition: border .3s ease-in-out;
+  transition: border .3s ease-in-out, background-color .3s ease-in-out;
 }
 
 .props__btn:hover {
   border: 1px solid var(--main-color);
+}
+
+.props__btn:active {
+  background-color: var(--color-gray);
+}
+
+.props__btn:focus-visible {
+  outline: 1px solid var(--pink-color);
 }
 
 .props__count {
@@ -181,7 +193,6 @@
 }
 
 .modal-cart__footer {
-  /* text-align: right; */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -212,8 +223,16 @@
   .overlay__modal {
     padding: 80px 70px;
   }
+
+  .overlay__modal-cart {
+    padding: 60px 50px;
+  }
 }
+
 @media (max-width: 1000px) {
+  .overlay__modal-cart {
+    padding: 40px 30px;
+  }
 
   .modal-item {
     gap: 36px;
@@ -226,6 +245,10 @@
 
   .modal-item__title {
     font-size: 30px;
+  }
+
+  .modal-cart__props {
+    flex-wrap: wrap;
   }
 }
 
@@ -250,6 +273,27 @@
   .modal-item__advantage-list {
     margin-bottom: 15px;
   }
+
+  .modal-cart__subtitle {
+    font-size: 16px;
+  }
+
+  .props__descr {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .props__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .modal-cart__img {
+    width: 100px;
+    height: 143px;
+  }
+
+
 }
 
 @media (max-width: 580px) {

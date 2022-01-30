@@ -9,7 +9,6 @@ const btnToCart = document.querySelector('.modal-item__btn-to-cart ')
 const btnToFavorite = document.querySelector('.modal-item__btn-to-favorite')
 
 const renderModal = (data) => {
-  // console.log(data);
   img.src = data.image
   img.alt = data.title
   title.textContent = data.title
@@ -36,9 +35,13 @@ const renderModal = (data) => {
     btnToFavorite.classList.remove('active')
   }
 
+  const addCart = getStorage('cart')
+  const itemCart = addCart.find(item => item.id === data.id)
+
+  btnToCart.textContent = itemCart ? `${itemCart.count} в корзине` : 'В корзину'
 }
 
-const itemModal = ({ selectorHandler, selectorParent, selectorModal, selectorClose, classActive}) => {
+const itemModal = ({ selectorHandler, selectorParent, selectorModal, selectorClose, classActive, callback}) => {
 
   const modal = document.querySelector(selectorModal)
 
@@ -50,12 +53,19 @@ const itemModal = ({ selectorHandler, selectorParent, selectorModal, selectorClo
 
       if (target) {
         await serviceGoods(renderModal, `/${target.dataset.id}`)
+        if (callback) callback()
         modal.classList.add(classActive)
       }
     })
 
   } else {
-    const target = document.querySelector(selectorHandler)
+    const targets = document.querySelectorAll(selectorHandler)
+    targets.forEach(target => {
+      target.addEventListener('click', () => {
+        if (callback) callback()
+        modal.classList.add(classActive)
+      })
+    })
   }
 
   modal.addEventListener('click', e => {

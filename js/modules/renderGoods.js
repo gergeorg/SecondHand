@@ -3,6 +3,8 @@ import {getStorage} from  "../service/serviceStorage.js"
 
 const createCard = ({id, title, image, price, discountPrice}) => {
   const allFavorite = getStorage('favorite')
+  const allCart = getStorage('cart')
+  const itemCart = allCart.find(item => item.id === id)
 
 
   const li = document.createElement('li')
@@ -21,7 +23,7 @@ const createCard = ({id, title, image, price, discountPrice}) => {
 
       <div class="good__control-wrapper">
         <h3 class="good__title">${title}</h3>
-        <button class="good__to-cart btn__to-cart btn-reset" data-id="${id}">В корзину</button>
+        <button class="good__to-cart btn__to-cart btn-reset" data-id="${id}">${itemCart ? `${itemCart.count} в корзине` : 'В корзину'}</button>
         <span class="goods__price">${discountPrice ? `${discountPrice} ₽
           <span class="goods__price-old">${price} ₽</span>`  : `${price} ₽`}
         </span>

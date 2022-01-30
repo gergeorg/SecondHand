@@ -1,6 +1,6 @@
-import {getStorage} from "../service/serviceStorage.js"
+import {getStorage, setStorage} from "../service/serviceStorage.js"
 
-const addCart = (elem, text) => {
+const addCart = (elem, text, selectorText) => {
   let obj = {}
   const cart = getStorage('cart');
   const findItem = cart.find(item => item.id === elem.dataset.id);
@@ -18,22 +18,67 @@ const addCart = (elem, text) => {
     elem.textContent = text.replace('{count}', obj.count)
   }
 
-  getStorage('cart', cart)
+  setStorage('cart', cart)
+
+  if (selectorText) {
+    document.querySelectorAll(`${selectorText.selector}[data-id="${findItem.id}"]`).forEach(elem => {
+      elem.textContent = selectorText.text.replace('{count}', obj.count)
+    })
+  }
 }
 
-const controlCart = ({selectorAdd, selectorRemove, selectorParent, text}) => {
-  const parent = document.querySelector(selectorParent)
+const removeCart = (elem, selectorText) => {
+  const cart = getStorage('cart')
+  const findItem = cart.find(item => item.id === elem.dataset.id);
 
-  parent.addEventListener('click', e => {
-    const target = e.target.closest(selectorAdd)
-    if (target) {
-      addCart(target, text)
+  if (findItem.count > 1) {
+    findItem.count -= 1
+    setStorage('cart', cart)
+
+    if (selectorText) {
+      document.querySelectorAll(`${selectorText.selector}[data-id="${findItem.id}"]`).forEach(elem => {
+        elem.textContent = selectorText.text.replace('{count}', findItem.count)
+      })
     }
+  } else {
+    const newCart = cart.filter(item => item.id !== elem.dataset.id)
+    setStorage('cart', newCart)
+
+    if (selectorText) {
+      document.querySelectorAll(`${selectorText.selector}[data-id="${findItem.id}"]`).forEach(elem => {
+        elem.textContent = 'В корзину'
+      })
+    }
+  }
+}
 
 
-  })
+const controlCart = ({selectorAdd, selectorRemove, selectorParent, text, selectorText, callback}) => {
+  if (selectorParent) {
+    const parent = document.querySelector(selectorParent)
+
+    parent.addEventListener('click', e => {
+      const addTarget = e.target.closest(selectorAdd)
+      if (addTarget) {
+        addCart(addTarget, text, selectorText)
+        if (callback) callback()
+        return
+      }
+
+      const removeTarget = e.target.closest(selectorRemove)
+      if (removeTarget) {
+        removeCart(removeTarget, selectorText)
+        if (callback) callback()
+      }
+    })
+  } else {
+    const btn = document.querySelector(selectorAdd)
+    btn.addEventListener('click', () => {
+      addCart(btn, text, selectorText)
+      if (callback) callback()
+    })
+  }
+
 }
 
 export default controlCart
-
-// setStorage

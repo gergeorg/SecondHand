@@ -7,6 +7,7 @@ import interceptLink from "./modules/interceptLink.js";
 import itemModal from "./modules/itemModal.js";
 import addFavorite from "./modules/addFavorite.js";
 import controlCart from "./modules/addCart.js";
+import renderCart from "./modules/renderCart.js";
 
 
 burgerMenu({
@@ -47,13 +48,20 @@ renderGoods(location.search, () => {
 
 interceptLink(checkSlider)
 
-
 itemModal({
   selectorHandler: '.goods__descr-btn',
   selectorParent: '.goods__list',
   selectorModal: '.overlay__item',
-  selectorClose: '.overlay__btn-close, .modal-item__btn-to-cart',
+  selectorClose: '.overlay__btn-close',
   classActive: 'overlay__active',
+})
+
+itemModal({
+  selectorHandler: '.header__btn-cart',
+  selectorModal: '.overlay__cart',
+  selectorClose: '.overlay__btn-close',
+  classActive: 'overlay__active',
+  callback: renderCart,
 })
 
 addFavorite({
@@ -71,9 +79,29 @@ addFavorite({
 
 controlCart ({
   selectorAdd: '.good__to-cart',
-  // selectorRemove: '',
   selectorParent: '.goods__list',
   text: '{count} в корзине',
-
 })
 
+controlCart ({
+  selectorAdd: '.modal-item__btn-to-cart ',
+  text: '{count} в корзине',
+  selectorText: {
+    selector: '.good__to-cart',
+    text: '{count} в корзине',
+  },
+})
+
+controlCart ({
+  selectorAdd: '.props__btn-plus',
+  selectorRemove: '.props__btn-min',
+  selectorParent: '.modal-cart__list',
+  selectorText: {
+    selector: '.good__to-cart',
+    text: '{count} в корзине',
+  },
+  callback: renderCart,
+})
+
+// props__btn-min
+// props__btn-plus
