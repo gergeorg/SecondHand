@@ -48,6 +48,7 @@
   width: 380px;
   height: 440px;
   object-fit: cover;
+  object-position: top;
 }
 
 .modal-item__title {

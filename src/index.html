@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- favicon -->
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <!-- <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff"> -->
+
+    <!-- fonts -->
+  <link rel="preload" href="fonts/Montserrat-Light.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Light.woff" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Regular.woff" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Medium.woff2" as="font" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Montserrat-Medium.woff" as="font" crossorigin="anonymous">
+
+      <!-- style -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style id="bg">
+
+    body {
+      transition: opacity .4s ease-in-out;
+      opacity: 0;
+    }
+
+    .hero__slider-link--women {
+      background-image: url('img/slide_1.jpg');
+    }
+
+    .hero__slider-link--men {
+      background-image: url('img/slide_2.jpg')
+    }
+
+    .hero__slider-link--kids {
+      background-image: url('img/slide_3.jpg')
+    }
+
+    @media (max-width: 1000px) {
+      .hero__slider-link--women {
+        background-image: url('img/slide_1_tablet.jpg');
+      }
+
+      .hero__slider-link--men {
+        background-image: url('img/slide_2_tablet.jpg')
+      }
+
+      .hero__slider-link--kids {
+        background-image: url('img/slide_3_tablet.jpg')
+      }
+    }
+
+  </style>
+
+    <!-- script -->
+  <script defer src="js/main.js"></script>
+  <script defer src="js/libs/focus-visible.js"></script>
+
+  <title>Second Hand</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header__container container">
+      <a href="index.html" class="header__logo">
+        <img class="header__logo-img" src="img/logo.svg" alt="Логотип магазина Second Hand">
+      </a>
+
+      <nav class="nav header__nav">
+        <button class="nav__btn btn-reset">
+          <span class="nav__btn-line">Каталог</span>
+        </button>
+
+        <div class="nav__mobile-wrapper">
+          <ul class="nav__list list-reset">
+            <li class="nav__item"><a href="?category=women" class="nav__link">Женщинам</a></li>
+            <li class="nav__item"><a href="?category=men" class="nav__link">Мужчинам</a></li>
+            <li class="nav__item"><a href="?category=kids" class="nav__link">Детям</a></li>
+          </ul>
+
+          <ul class="nav__control-list header__control-list list-reset">
+            <li class="header__control-item">
+              <button class="header__btn header__btn-cart btn-reset">
+                <svg width="24" height="24">
+                  <use xlink:href="img/icon.svg#card"></use>
+                </svg>
+              </button>
+            </li>
+
+            <li class="header__control-item">
+              <a class="header__btn header__btn-favorite">
+                <svg width="26" height="24">
+                  <use xlink:href="img/icon.svg#favorite"></use>
+                </svg>
+              </a>
+            </li>
+
+            <li class="header__control-item">
+              <a class="header__btn header__btn-person">
+                <svg width="22" height="24">
+                  <use xlink:href="img/icon.svg#person"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="header__search">
+        <form action="index.html" class="search">
+          <input class="search__input" type="search" name="search" required>
+          <button class="search__button btn-reset" type="button">
+            <svg width="24" height="24">
+              <use xlink:href="img/icon.svg#search"></use>
+            </svg>
+          </button>
+
+          <button class="search__close btn-reset" type="button">
+            <svg width="12" height="12">
+              <use xlink:href="img/icon.svg#close"></use>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <ul class="header__control-list list-reset">
+        <li class="header__control-item">
+          <button class="header__btn header__btn-cart btn-reset">
+            <svg width="24" height="24">
+              <use xlink:href="img/icon.svg#card"></use>
+            </svg>
+          </button>
+        </li>
+
+        <li class="header__control-item">
+          <a class="header__btn header__btn-favorite" href="#">
+            <svg width="26" height="24">
+              <use xlink:href="img/icon.svg#favorite"></use>
+            </svg>
+          </a>
+        </li>
+
+        <li class="header__control-item">
+          <a class="header__btn header__btn-person" href="#">
+            <svg width="22" height="24">
+              <use xlink:href="img/icon.svg#person"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__container container">
+        <div class="hero__slider swiper">
+          <ul class="hero__slider-wrapper swiper-wrapper list-reset">
+            <li class="hero__slider-item swiper-slide">
+              <a class="hero__slider-link hero__slider-link--women" href="?category=women">
+                <h2 class="hero__slider-title">Новые поступления блузок</h2>
+              </a>
+            </li>
+
+            <li class="hero__slider-item swiper-slide">
+              <a class="hero__slider-link hero__slider-link--men" href="?category=men">
+                <h2 class="hero__slider-title">Мужские стильные рубашки</h2>
+              </a>
+            </li>
+
+            <li class="hero__slider-item swiper-slide">
+              <a class="hero__slider-link hero__slider-link--kids" href="?category=kids">
+                <h2 class="hero__slider-title">Собираем ребенка в&nbsp;школу</h2>
+              </a>
+            </li>
+          </ul>
+
+          <div class="hero__swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="goods">
+      <div class="goods__container container">
+        <ul class="goods__list list-reset">
+
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__container container">
+        <ul class="footer__nav list-reset">
+          <li class="footer__nav-item">
+            <h3 class="footer__subtitle">Каталог</h3>
+            <ul class="footer__list-vertical list-reset">
+              <li class="footer__item"><a href="?category=women" class="footer__link">Женщины</a></li>
+              <li class="footer__item"><a href="?category=men" class="footer__link">Мужчины</a></li>
+              <li class="footer__item"><a href="?category=kids" class="footer__link">Дети</a></li>
+            </ul>
+          </li>
+
+          <li class="footer__nav-item">
+            <h3 class="footer__subtitle">Покупателям</h3>
+            <ul class="footer__list-vertical list-reset">
+              <li class="footer__item"><a href="?category=#" class="footer__link">Оплата заказа</a></li>
+              <li class="footer__item"><a href="?category=#" class="footer__link">Условия доставки</a></li>
+              <li class="footer__item"><a href="?category=#" class="footer__link">Обмен и возврат заказа</a></li>
+              <li class="footer__item"><a href="?category=#" class="footer__link">Уход за изделиями</a></li>
+            </ul>
+          </li>
+
+          <li class="footer__nav-item">
+            <h3 class="footer__subtitle">Связаться с нами</h3>
+            <ul class="footer__list-vertical list-reset">
+              <li class="footer__item"><a href="?category=#" class="footer__link">Контакты и адреса магазинов</a></li>
+            </ul>
+          </li>
+
+          <li class="footer__nav-item">
+            <h3 class="footer__subtitle">Партнерам</h3>
+            <ul class="footer__list-vertical list-reset">
+              <li class="footer__item"><a href="?category=#" class="footer__link">Франшизы</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="footer__contact-list list-reset">
+          <li class="footer__item"><a class="footer__link footer__contact-link" href="tel:88004958449">8 800 495 84 49</a></li>
+          <li class="footer__item"><a class="footer__link footer__contact-link" href="mailto:88004958449">Second_Hand@gmail.com</a></li>
+        </ul>
+
+        <ul class="footer__social-list list-reset">
+          <li class="footer__item">
+            <a class="footer__social-link" aria-label="Перейти на нашу страницу в instagram" href="#">
+              <svg width="42" height="42">
+                <use xlink:href="img/icon.svg#inst"></use>
+              </svg>
+            </a>
+          </li>
+
+          <li class="footer__item">
+            <a class="footer__social-link" aria-label="Перейти на нашу страницу в vk" href="#">
+              <svg width="42" height="42">
+                <use xlink:href="img/icon.svg#vk"></use>
+              </svg>
+            </a>
+          </li>
+
+          <li class="footer__item">
+            <a class="footer__social-link" aria-label="Перейти на нашу страницу в facebook" href="#">
+              <svg class="footer__inst" width="42" height="42">
+                <use xlink:href="img/icon.svg#fb"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <a href="#" class="footer__agreement"><span class="footer__agreement_text">Соглашение об обработке </span> <span class="footer__agreement_text"> персональных данных</span></a>
+      </div>
+    </footer>
+
+    <div class="overlay overlay__item">
+      <div class="overlay__modal overlay__modal-item">
+        <button class="overlay__btn-close btn-reset">
+          <svg width="14" height="14">
+            <use xlink:href="img/icon.svg#modal-close"></use>
+          </svg>
+        </button>
+
+        <div class="modal-item">
+          <img class="modal-item__img" src="img/good_1.jpg" alt="Жилет">
+
+          <div class="modal-item__descr">
+            <h2 class="modal-item__title">Жилет</h2>
+            <ul class="modal-item__advantage-list list-reset">
+              <li class="modal-item__advantage-item">Состав:
+                <span class="modal-item__text">Хлопок - 47%, Акрил - 26%, Шерсть - 14%, Полиамид - 13%</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Материал подкладки:
+                <span class="modal-item__text">без подкладки</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Утеплитель:
+                <span class="modal-item__text">без утеплителя</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Сезон:
+                <span class="modal-item__text">мульти</span>
+              </li>
+
+              <li class="modal-item__advantage-item">Цвет:
+                <span class="modal-item__text">бежевый</span>
+              </li>
+            </ul>
+
+            <p class="modal-item__article">Артикул:
+              <span class="modal-item__text modal-item__text-article">IX001XW016CK</span>
+            </p>
+
+            <div class="modal-item__btn-group">
+              <button class="modal-item__btn-to-cart btn__to-cart btn-reset">В корзину</button>
+              <button class="modal-item__btn-to-favorite btn-reset">
+                <svg width="44" height="37">
+                  <use xlink:href="img/icon.svg#modal-fav"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay overlay__cart">
+      <div class="overlay__modal overlay__modal-cart">
+        <button class="overlay__btn-close btn-reset">
+          <svg width="14" height="14">
+            <use xlink:href="img/icon.svg#modal-close"></use>
+          </svg>
+        </button>
+
+        <form class="modal-cart" action="#">
+          <ul class="modal-cart__list list-reset">
+
+          </ul>
+
+          <div class="modal-cart__footer">
+            <p class="modal-cart__total">Итог:
+              <output class="modal-cart__total-price" name="total-price">11 900</output>
+              <span class="modal-cart__text">₽</span>
+            </p>
+
+            <button class="modal-cart__btn btn__to-cart btn-reset" type="submit">Оформить заказ</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

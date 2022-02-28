@@ -1,0 +1,32 @@
+{
+  "name": "secondhand",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gergeorg/SecondHand.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gergeorg/SecondHand/issues"
+  },
+  "homepage": "https://github.com/gergeorg/SecondHand#readme",
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cssimport": "^7.0.0",
+    "gulp-image": "^6.3.1",
+    "gulp-terser": "^2.1.0",
+    "webpack": "^5.69.1",
+    "webpack-stream": "^7.0.0"
+  }
+}
